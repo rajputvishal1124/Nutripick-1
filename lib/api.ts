@@ -649,3 +649,16 @@ export async function analyzeFoodImage (file:File) : Promise<FoodAnalysisResult>
 
   return response.data;
 }
+
+export async function recommendFoodImage (file:File) : Promise<FoodAnalysisResult>{
+  const formData = new FormData();
+  formData.append("image", file);
+  
+  const response = await axios.post("http://localhost:4000/recommend", formData, {
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+  });
+
+  return response.data;
+}

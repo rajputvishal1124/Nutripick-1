@@ -5,8 +5,16 @@ import type React from "react";
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Search, MapPin, Leaf } from "lucide-react";
+import {
+  Search,
+  MapPin,
+  Leaf,
+  AlertCircle,
+  CheckCircle,
+  Users,
+} from "lucide-react";
 import { indianFoodData } from "@/data/indian-food-data";
+import { recommendFoodImage } from "@/lib/api";
 
 type FoodItem = {
   name: string;
@@ -32,6 +40,16 @@ type Restaurant = {
   servesItem: string[];
 };
 
+type FoodAnalysis = {
+  ingredients: string[];
+  protein_sources: string[];
+  health_level: number;
+  benefits: string[];
+  disadvantages: string[];
+  personAvoid: string[];
+  personPrefer: string[];
+};
+
 export default function DishRecommendation() {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedDish, setSelectedDish] = useState<FoodItem | null>(null);
@@ -39,6 +57,8 @@ export default function DishRecommendation() {
   const [recommendedRestaurants, setRecommendedRestaurants] = useState<
     Restaurant[]
   >([]);
+  const [foodAnalysis, setFoodAnalysis] = useState<FoodAnalysis | null>(null);
+  const [isAnalyzing, setIsAnalyzing] = useState(false);
 
   // Process food data with health scores
   useEffect(() => {
@@ -135,6 +155,7 @@ export default function DishRecommendation() {
   // Handle dish selection
   const handleDishSelect = (dish: FoodItem) => {
     setSelectedDish(dish);
+    setFoodAnalysis(null); // Reset food analysis when selecting a new dish
 
     // Generate mock restaurants that serve this dish
     const mockRestaurants: Restaurant[] = [
@@ -162,6 +183,56 @@ export default function DishRecommendation() {
     ];
 
     setRecommendedRestaurants(mockRestaurants);
+  };
+
+  useEffect(() => {
+    const foodAnalysis = async () => {
+      if (!selectedDish || !selectedDish.url) return;
+
+      try {
+        setIsAnalyzing(true);
+        // Fetch the image from the URL
+        const response = await fetch(selectedDish.url);
+        const blob = await response.blob();
+
+        // Create a File object from the blob
+        const fileName =
+          selectedDish.name.toLowerCase().replace(/\s+/g, "-") + ".jpg";
+        const imageFile = new File([blob], fileName, {
+          type: blob.type || "image/jpeg",
+        });
+
+        // Pass the File object to the recommendFoodImage function
+        const analyzedFood = await recommendFoodImage(imageFile);
+        setFoodAnalysis(analyzedFood);
+      } catch (error) {
+        console.error("Error processing food image:", error);
+      } finally {
+        setIsAnalyzing(false);
+      }
+    };
+
+    foodAnalysis();
+  }, [selectedDish]);
+
+  // Function to render health level indicator
+  const renderHealthLevel = (level: number) => {
+    const healthLevels = [
+      { level: 1, color: "bg-red-500", text: "Low" },
+      { level: 2, color: "bg-yellow-500", text: "Moderate" },
+      { level: 3, color: "bg-green-500", text: "High" },
+    ];
+
+    const healthInfo =
+      healthLevels.find((h) => h.level === level) || healthLevels[0];
+
+    return (
+      <div
+        className={`px-3 py-1 rounded-full text-white text-sm font-medium ${healthInfo.color}`}
+      >
+        Health Level: {healthInfo.text}
+      </div>
+    );
   };
 
   return (
@@ -275,17 +346,123 @@ export default function DishRecommendation() {
                   {selectedDish.course.split(",")[0]}
                 </span>
               </div>
-
-              <div className="mt-4">
-                <Link
-                  href="/food-analysis"
-                  className="text-sm text-green-600 dark:text-green-400 hover:underline"
-                >
-                  View detailed health analysis →
-                </Link>
-              </div>
             </div>
           </div>
+
+          {isAnalyzing && (
+            <div className="mt-4 p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
+              <div className="flex items-center justify-center">
+                <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-green-500 mr-3"></div>
+                <p>Analyzing dish nutritional profile...</p>
+              </div>
+            </div>
+          )}
+
+          {foodAnalysis && (
+            <div className="mt-4 p-6 bg-gray-50 dark:bg-gray-700 rounded-lg">
+              <div className="flex justify-between items-center mb-4">
+                <h4 className="text-lg font-semibold">AI Food Analysis</h4>
+                {renderHealthLevel(foodAnalysis.health_level)}
+              </div>
+
+              <div className="grid md:grid-cols-2 gap-6">
+                <div>
+                  <h5 className="font-medium mb-2 flex items-center">
+                    <Leaf className="w-4 h-4 text-green-500 mr-2" />
+                    Ingredients
+                  </h5>
+                  <ul className="space-y-1">
+                    {foodAnalysis.ingredients.map((ingredient, i) => (
+                      <li key={i} className="text-sm flex items-center">
+                        <span className="w-1.5 h-1.5 rounded-full bg-green-500 mr-2"></span>
+                        <span>{ingredient}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  {foodAnalysis.protein_sources.length > 0 && (
+                    <div className="mt-4">
+                      <h5 className="font-medium mb-2">Protein Sources</h5>
+                      <ul className="space-y-1">
+                        {foodAnalysis.protein_sources.map((source, i) => (
+                          <li key={i} className="text-sm flex items-center">
+                            <span className="w-1.5 h-1.5 rounded-full bg-blue-500 mr-2"></span>
+                            <span>{source}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                </div>
+
+                <div>
+                  <h5 className="font-medium mb-2 flex items-center">
+                    <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
+                    Health Benefits
+                  </h5>
+                  <ul className="space-y-1">
+                    {foodAnalysis.benefits.map((benefit, i) => (
+                      <li key={i} className="text-sm flex items-center">
+                        <span className="w-1.5 h-1.5 rounded-full bg-green-500 mr-2"></span>
+                        <span>{benefit}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <h5 className="font-medium mt-4 mb-2 flex items-center">
+                    <AlertCircle className="w-4 h-4 text-red-500 mr-2" />
+                    Health Concerns
+                  </h5>
+                  <ul className="space-y-1">
+                    {foodAnalysis.disadvantages.map((disadvantage, i) => (
+                      <li key={i} className="text-sm flex items-center">
+                        <span className="w-1.5 h-1.5 rounded-full bg-red-500 mr-2"></span>
+                        <span>{disadvantage}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+
+              <div className="mt-6 grid md:grid-cols-2 gap-6">
+                <div className="p-4 bg-red-50 dark:bg-red-900/20 rounded-lg">
+                  <h5 className="font-medium mb-2 flex items-center text-red-700 dark:text-red-400">
+                    <Users className="w-4 h-4 mr-2" />
+                    Who Should Avoid
+                  </h5>
+                  <ul className="space-y-1">
+                    {foodAnalysis.personAvoid.map((person, i) => (
+                      <li
+                        key={i}
+                        className="text-sm flex items-center text-red-700 dark:text-red-400"
+                      >
+                        <span className="w-1.5 h-1.5 rounded-full bg-red-500 mr-2"></span>
+                        <span>{person}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
+                  <h5 className="font-medium mb-2 flex items-center text-green-700 dark:text-green-400">
+                    <Users className="w-4 h-4 mr-2" />
+                    Recommended For
+                  </h5>
+                  <ul className="space-y-1">
+                    {foodAnalysis.personPrefer.map((person, i) => (
+                      <li
+                        key={i}
+                        className="text-sm flex items-center text-green-700 dark:text-green-400"
+                      >
+                        <span className="w-1.5 h-1.5 rounded-full bg-green-500 mr-2"></span>
+                        <span>{person}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       )}
 
