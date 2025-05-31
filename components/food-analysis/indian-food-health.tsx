@@ -32,7 +32,7 @@ type Restaurant = {
   lessHealthyOptions: string[];
 };
 
-export default function IndianFoodHealth() {
+export default function IndianFoodHealth({ setSelectedDish }: any) {
   const [foodItems, setFoodItems] = useState<FoodItem[]>([]);
   const [filteredItems, setFilteredItems] = useState<FoodItem[]>([]);
   const [restaurants, setRestaurants] = useState<Restaurant[]>([]);
@@ -170,6 +170,11 @@ export default function IndianFoodHealth() {
     });
 
     setRestaurants(mockRestaurants);
+  };
+
+  const handleSelectDish = (dish: any) => {
+    setSelectedDish(dish);
+    window.scrollTo(0, 0);
   };
 
   // Apply filters to food items
@@ -343,7 +348,8 @@ export default function IndianFoodHealth() {
           {filteredItems.map((item, index) => (
             <div
               key={index}
-              className="bg-gray-50 dark:bg-gray-700 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow"
+              onClick={() => handleSelectDish(item)}
+              className="bg-gray-50 cursor-pointer dark:bg-gray-700 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow"
             >
               <div className="relative h-48">
                 <Image

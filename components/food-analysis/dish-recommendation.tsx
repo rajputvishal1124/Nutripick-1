@@ -12,6 +12,8 @@ import {
   AlertCircle,
   CheckCircle,
   Users,
+  Award,
+  ArrowRight,
 } from "lucide-react";
 import { indianFoodData } from "@/data/indian-food-data";
 import { recommendFoodImage } from "@/lib/api";
@@ -50,15 +52,21 @@ type FoodAnalysis = {
   personPrefer: string[];
 };
 
-export default function DishRecommendation() {
+export default function DishRecommendation({
+  selectedDish,
+  setSelectedDish,
+}: any) {
   const [searchQuery, setSearchQuery] = useState("");
-  const [selectedDish, setSelectedDish] = useState<FoodItem | null>(null);
+  // const [selectedDish, setSelectedDish] = useState<FoodItem | null>(null);
   const [filteredDishes, setFilteredDishes] = useState<FoodItem[]>([]);
   const [recommendedRestaurants, setRecommendedRestaurants] = useState<
     Restaurant[]
   >([]);
   const [foodAnalysis, setFoodAnalysis] = useState<FoodAnalysis | null>(null);
   const [isAnalyzing, setIsAnalyzing] = useState(false);
+  const [healthyRecommendations, setHealthyRecommendations] = useState<
+    FoodItem[]
+  >([]);
 
   // Process food data with health scores
   useEffect(() => {
@@ -74,6 +82,13 @@ export default function DishRecommendation() {
     });
 
     setFilteredDishes(processedItems);
+
+    // Get top 10 healthiest foods
+    const topHealthyFoods = [...processedItems]
+      .sort((a, b) => (b.healthScore || 0) - (a.healthScore || 0))
+      .slice(0, 10);
+
+    setHealthyRecommendations(topHealthyFoods);
   }, []);
 
   // Calculate health score based on ingredients and cooking method
@@ -233,6 +248,13 @@ export default function DishRecommendation() {
         Health Level: {healthInfo.text}
       </div>
     );
+  };
+
+  // Handle selecting a recommended dish
+  const handleRecommendedDishSelect = (dish: FoodItem) => {
+    handleDishSelect(dish);
+    // Scroll to top of the page
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
@@ -467,7 +489,7 @@ export default function DishRecommendation() {
       )}
 
       {selectedDish && recommendedRestaurants.length > 0 && (
-        <div>
+        <div className="mb-8">
           <h3 className="text-xl font-semibold mb-4">
             Restaurants Serving {selectedDish.name}
           </h3>
@@ -520,6 +542,56 @@ export default function DishRecommendation() {
                   </div>
                 </div>
               </Link>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {selectedDish && (
+        <div className="mt-8">
+          <div className="flex items-center justify-between mb-4">
+            <h3 className="text-xl font-semibold flex items-center">
+              <Award className="w-5 h-5 text-green-500 mr-2" />
+              Top 10 Healthiest Indian Dishes
+            </h3>
+            <Link
+              href="/food-analysis"
+              className="text-sm text-green-600 dark:text-green-400 hover:underline flex items-center"
+            >
+              View all healthy options <ArrowRight className="w-4 h-4 ml-1" />
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+            {healthyRecommendations.map((dish, index) => (
+              <div
+                key={index}
+                className="bg-gray-50 dark:bg-gray-700 rounded-lg p-3 cursor-pointer hover:shadow-md transition-shadow"
+                onClick={() => handleRecommendedDishSelect(dish)}
+              >
+                <div className="relative h-24 mb-2 rounded-md overflow-hidden">
+                  <Image
+                    src={dish.url || "/placeholder.svg"}
+                    alt={dish.name}
+                    fill
+                    className="object-cover"
+                  />
+                  <div className="absolute top-0 left-0 bg-green-500 text-white text-xs font-bold px-2 py-1 rounded-br-md">
+                    #{index + 1}
+                  </div>
+                  {dish.healthScore && (
+                    <div className="absolute bottom-0 right-0 bg-green-500 text-white text-xs font-bold px-2 py-1 rounded-tl-md">
+                      {dish.healthScore}
+                    </div>
+                  )}
+                </div>
+                <h4 className="font-medium text-xs line-clamp-2">
+                  {dish.name}
+                </h4>
+                <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                  {dish.region}
+                </p>
+              </div>
             ))}
           </div>
         </div>

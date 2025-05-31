@@ -9,7 +9,7 @@ export const indianFoodData = [
       course: "main",
       state: "Punjab",
       region: "North",
-      url: "https://images.unsplash.com/photo-1603360946369-dc9bb6258143",
+      url: "https://www.simplyrecipes.com/thmb/LYwosfrO2cGCT2_bGS5wIeHRnd8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2019__01__Butter-Chicken-LEAD-1-f8a0cd09ea9442ce93651887f164db03.jpg",
     },
     {
       name: "Chole Bhature",
@@ -21,19 +21,7 @@ export const indianFoodData = [
       course: "main",
       state: "Punjab",
       region: "North",
-      url: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd",
-    },
-    {
-      name: "Dosa",
-      ingredients: "Rice, urad dal, fenugreek seeds, salt",
-      diet: "vegetarian",
-      prep_time: 480,
-      cook_time: 15,
-      flavor_profile: "fermented, crispy",
-      course: "breakfast, main",
-      state: "Tamil Nadu",
-      region: "South",
-      url: "https://images.unsplash.com/photo-1610057099443-fde8c4d50f91",
+      url: "https://as2.ftcdn.net/jpg/10/92/78/45/1000_F_1092784517_IyK2ElABblouTpn1tGnjWpxwEmhc1e60.webp",
     },
     {
       name: "Idli Sambar",
@@ -45,7 +33,7 @@ export const indianFoodData = [
       course: "breakfast",
       state: "Tamil Nadu",
       region: "South",
-      url: "https://images.unsplash.com/photo-1589301841000-f19ffb2d6a54",
+      url: "https://t3.ftcdn.net/jpg/00/57/74/72/360_F_57747204_AypMG7kkfgwO51GbYPqNBIvgCk0CXwrY.jpg",
       description: "Steamed rice cakes served with lentil-based vegetable stew. A nutritious South Indian breakfast.",
     },
     {
@@ -61,8 +49,8 @@ export const indianFoodData = [
       url: "https://images.unsplash.com/photo-1589301760014-d929f3979dbc",
     },
     {
-      name: "Biryani",
-      ingredients: "Basmati rice, meat/vegetables, yogurt, spices, saffron",
+      name: "Veg Biryani",
+      ingredients: "Basmati rice, vegetables, yogurt, spices, saffron",
       diet: "non-vegetarian, vegetarian",
       prep_time: 40,
       cook_time: 60,
@@ -71,6 +59,18 @@ export const indianFoodData = [
       state: "Hyderabad",
       region: "South",
       url: "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8",
+    },
+    {
+      name: "Biryani",
+      ingredients: "Basmati rice, chicken or mutton, yogurt, fried onions, saffron, ghee, whole spices (cardamom, cloves, cinnamon), herbs",
+      diet: "non-vegetarian",
+      prep_time: 60,
+      cook_time: 90,
+      flavor_profile: "aromatic, spicy, rich",
+      course: "main",
+      state: "Telangana",
+      region: "South",
+      url: "https://www.shutterstock.com/image-photo/hyderabadi-chicken-biryani-aromatic-flavorful-260nw-2497040151.jpg"
     },
     {
       name: "Samosa",
@@ -94,7 +94,7 @@ export const indianFoodData = [
       course: "breakfast",
       state: "Karnataka",
       region: "South",
-      url: "https://images.unsplash.com/photo-1665660710687-b44c50751054?ixid=M3w0NTE0NTh8MHwxfHNlYXJjaHwxfHxVcG1hfGVufDB8fHx8MTc0NTMxMTQ1NHww&ixlib=rb-4.0.3",
+      url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR62An25qATwuE83QS6U4uid1_fK5kigq9gMQ&s",
     },
     {
       name: "Dal Tadka",
@@ -118,7 +118,7 @@ export const indianFoodData = [
       course: "main",
       state: "Punjab",
       region: "North",
-      url: "https://images.unsplash.com/photo-1618449840665-9ed506d73a34",
+      url: "https://t3.ftcdn.net/jpg/08/24/35/48/360_F_824354853_s8KRJsemDVYTcRgLV079vjzHkHj4uqKL.jpg",
     },
     {
       name: "Gulab Jamun",
@@ -130,7 +130,7 @@ export const indianFoodData = [
       course: "dessert",
       state: "West Bengal",
       region: "East",
-      url: "https://images.unsplash.com/photo-1615832494873-b3ccb4c5b8b7",
+      url: "https://t3.ftcdn.net/jpg/09/47/78/30/360_F_947783020_9ceQ4s73PqZBSVzo3JKJxob6LcLyPuAJ.jpg",
     },
     {
       name: "Jalebi",
@@ -142,7 +142,7 @@ export const indianFoodData = [
       course: "dessert, snack",
       state: "Uttar Pradesh",
       region: "North",
-      url: "https://images.unsplash.com/photo-1589249125609-c683e6796be2",
+      url: "https://static.toiimg.com/thumb/53099699.cms?width=1200&height=900",
     },
     {
       name: "Tandoori Chicken",
@@ -154,7 +154,7 @@ export const indianFoodData = [
       course: "appetizer, main",
       state: "Punjab",
       region: "North",
-      url: "https://images.unsplash.com/photo-1610057099431-d73a1c9d2f2f",
+      url: "https://sinfullyspicy.com/wp-content/uploads/2014/07/1200-by-1200-images-2.jpg",
     },
     {
       name: "Aloo Paratha",
@@ -166,7 +166,7 @@ export const indianFoodData = [
       course: "breakfast, main",
       state: "Punjab",
       region: "North",
-      url: "https://images.unsplash.com/photo-1589301760014-d929f3979dbc",
+      url: "https://t4.ftcdn.net/jpg/10/88/42/89/360_F_1088428967_ufL1oCbDRbMP9ibizqh6Q0EO4YdWnzyf.jpg",
       description: "Flatbread stuffed with spiced mashed potatoes, then pan-fried with ghee. A hearty breakfast dish.",
     },
     {
@@ -179,7 +179,7 @@ export const indianFoodData = [
       course: "main",
       state: "Punjab",
       region: "North",
-      url: "https://images.unsplash.com/photo-1547496502-affa22d38842",
+      url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2teG3QnS-pIf_ghAXnbOsKEw4VGxiIK5P_A&s",
     },
     {
       name: "Rogan Josh",
@@ -191,7 +191,7 @@ export const indianFoodData = [
       course: "main",
       state: "Jammu & Kashmir",
       region: "North",
-      url: "https://images.unsplash.com/photo-1545247181-516773cae754",
+      url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgZRD0QKjIQ3bSuy0HLwuUdkb4qMQnJ4DV8g&s",
     },
     {
       name: "Dal Makhani",
@@ -203,7 +203,7 @@ export const indianFoodData = [
       course: "main",
       state: "Punjab",
       region: "North",
-      url: "https://images.unsplash.com/photo-1626082896492-766af4eb6501",
+      url: "https://i.ytimg.com/vi/M7nvJN0vQ3g/maxresdefault.jpg",
       description:
         "A rich, creamy lentil dish made with black lentils and kidney beans, slow-cooked with butter and cream.",
     },
@@ -217,7 +217,7 @@ export const indianFoodData = [
       course: "breakfast, main",
       state: "Karnataka",
       region: "South",
-      url: "https://images.unsplash.com/photo-1589301760014-d929f3979dbc",
+      url: "https://vismaifood.com/storage/app/uploads/public/8b4/19e/427/thumb__700_0_0_0_auto.jpg",
     },
     {
       name: "Pani Puri",
@@ -229,7 +229,7 @@ export const indianFoodData = [
       course: "snack, street food",
       state: "Maharashtra",
       region: "West",
-      url: "https://images.unsplash.com/photo-1604400754331-5f4b72565f3f",
+      url: "https://c8.alamy.com/comp/ET1D7J/pani-puri-with-sprouted-mung-served-in-plate-ET1D7J.jpg",
     },
     {
       name: "Dhokla",
@@ -241,7 +241,7 @@ export const indianFoodData = [
       course: "snack, breakfast",
       state: "Gujarat",
       region: "West",
-      url: "https://images.unsplash.com/photo-1589249125609-c683e6796be2",
+      url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNwUYbQomKPWXSpJPMZxd4zyS2n7ZWvGdT6Q&s",
     },
     {
       name: "Rasgulla",
@@ -253,7 +253,7 @@ export const indianFoodData = [
       course: "dessert",
       state: "West Bengal",
       region: "East",
-      url: "https://images.unsplash.com/photo-1615832494873-b3ccb4c5b8b7",
+      url: "https://cdn.uengage.io/uploads/28289/image-BSL8WN-1704795356.jpg",
     },
     {
       name: "Vada Pav",
@@ -265,7 +265,7 @@ export const indianFoodData = [
       course: "snack, street food",
       state: "Maharashtra",
       region: "West",
-      url: "https://images.unsplash.com/photo-1606755962773-d324e0a13086",
+      url: "https://media.istockphoto.com/id/1329213718/photo/vada-pav.jpg?s=612x612&w=0&k=20&c=Yy3pm53KrPAnZXL9weCJDzXjxa2My34oVFx7RBCPmZ8=",
     },
     {
       name: "Kofta Curry",
@@ -277,7 +277,7 @@ export const indianFoodData = [
       course: "main",
       state: "Uttar Pradesh",
       region: "North",
-      url: "https://images.unsplash.com/photo-1545247181-516773cae754",
+      url: "https://shwetainthekitchen.com/wp-content/uploads/2024/02/Lauki-Kofta-Curry.jpg",
       description:
         "Deep-fried vegetable or meat balls served in a rich, spiced gravy. A popular dish for special occasions.",
     },
@@ -291,7 +291,7 @@ export const indianFoodData = [
       course: "main",
       state: "Punjab",
       region: "North",
-      url: "https://images.unsplash.com/photo-1589302168068-964664d93dc0",
+      url: "https://t4.ftcdn.net/jpg/04/78/25/55/360_F_478255553_Ri993VKSFsxRO80JA7zCp2BEflnGWbiB.jpg",
       description:
         "Spiced chickpea curry with a tangy tomato-based sauce. A popular dish often served with bread or rice.",
     },
@@ -305,7 +305,7 @@ export const indianFoodData = [
       course: "main",
       state: "Uttar Pradesh",
       region: "North",
-      url: "https://images.unsplash.com/photo-1505576633757-0ac1084af824",
+      url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScCdVr12DL31WSo0tB_gXiFr42CyGSysAlgQ&s",
     },
     {
       name: "Rajma Chawal",
@@ -317,7 +317,7 @@ export const indianFoodData = [
       course: "main",
       state: "Punjab",
       region: "North",
-      url: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd",
+      url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXcuWx6YEXMgCYjrYPkoAgg3xib7U9VeoqcA&s",
     },
     {
       name: "Mysore Pak",
@@ -329,7 +329,7 @@ export const indianFoodData = [
       course: "dessert",
       state: "Karnataka",
       region: "South",
-      url: "https://images.unsplash.com/photo-1615832494873-b3ccb4c5b8b7",
+      url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7ITk7yUk0tjZZZZlV3tf2QQAS0Qd2K3ePpw&s",
     },
     {
       name: "Chicken Tikka Masala",
@@ -341,7 +341,7 @@ export const indianFoodData = [
       course: "main",
       state: "Punjab",
       region: "North",
-      url: "https://images.unsplash.com/photo-1603360946369-dc9bb6258143",
+      url: "https://www.seriouseats.com/thmb/DbQHUK2yNCALBnZE-H1M2AKLkok=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/chicken-tikka-masala-for-the-grill-recipe-hero-2_1-cb493f49e30140efbffec162d5f2d1d7.JPG",
       description:
         "Grilled chicken pieces in a creamy, spiced tomato sauce. Though popularized in the UK, it has Indian origins.",
     },
@@ -355,7 +355,7 @@ export const indianFoodData = [
       course: "dessert",
       state: "Rajasthan",
       region: "West",
-      url: "https://images.unsplash.com/photo-1589308078059-be1415eab4c3",
+      url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScG770Mqyh1wKjZCTUl6BgVYHjpGiROfnB1A&s",
       description:
         "Sweet balls made from tiny gram flour droplets fried in ghee and bound with sugar syrup. Often prepared during festivals.",
     },
@@ -369,7 +369,7 @@ export const indianFoodData = [
       course: "appetizer",
       state: "Punjab",
       region: "North",
-      url: "https://images.unsplash.com/photo-1599487488170-d11ec9c172f0",
+      url: "https://www.shutterstock.com/image-photo/deliciously-spiced-chicken-tikka-kabab-600nw-2495838045.jpg",
     },
     {
       name: "Pav Bhaji",
@@ -381,7 +381,7 @@ export const indianFoodData = [
       course: "main, street food",
       state: "Maharashtra",
       region: "West",
-      url: "https://images.unsplash.com/photo-1606755962773-d324e0a13086",
+      url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1b_FOBgouyPPDPOKpZ1KihH8in0hDNmUZvA&s",
     },
     {
       name: "Rasam",
@@ -393,7 +393,7 @@ export const indianFoodData = [
       course: "soup",
       state: "Tamil Nadu",
       region: "South",
-      url: "https://images.unsplash.com/photo-1505576633757-0ac1084af824",
+      url: "https://www.indianhealthyrecipes.com/wp-content/uploads/2018/11/rasam-recipe.jpg",
     },
     {
       name: "Kachori",
@@ -405,7 +405,7 @@ export const indianFoodData = [
       course: "snack, breakfast",
       state: "Rajasthan",
       region: "North",
-      url: "https://images.unsplash.com/photo-1601050690597-df0568f70950",
+      url: "https://thumbs.dreamstime.com/b/kachori-chutney-indian-snack-60979604.jpg",
     },
     {
       name: "Chicken Chettinad",
@@ -517,7 +517,7 @@ export const indianFoodData = [
       url: "https://images.unsplash.com/photo-1561990768-fc6c571931cc?ixid=M3w0NTE0NTh8MHwxfHNlYXJjaHwxfHxHb2JpJTIwTWFuY2h1cmlhbnxlbnwwfHx8fDE3NDUzMTE0NTV8MA&ixlib=rb-4.0.3",
     },
     {
-      name: "Sambar",
+      name: "Sambhar",
       ingredients: "Toor dal, mixed vegetables, tamarind, sambar powder",
       diet: "vegetarian",
       prep_time: 45,
@@ -526,7 +526,7 @@ export const indianFoodData = [
       course: "main course",
       state: "Tamil Nadu",
       region: "South",
-      url: "https://images.unsplash.com/photo-1632104667384-06f58cb7ad44?ixid=M3w0NTE0NTh8MHwxfHNlYXJjaHwxfHxTYW1iYXJ8ZW58MHx8fHwxNzQ1MzExNDU1fDA&ixlib=rb-4.0.3",
+      url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRx9GStgr0h7G8vWoQVzb28giA11OjT6aYoiQ&s",
     },
   ]
   
