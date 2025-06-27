@@ -7,21 +7,21 @@ export default function TestimonialsSection() {
         "This app has completely changed how I shop for groceries. I can now make informed decisions about what I'm feeding my family.",
       author: "Sarah Johnson",
       role: "Health-conscious parent",
-      avatar: "/placeholder.svg?height=80&width=80",
+      avatar: "/dp1.avif",
     },
     {
       quote:
         "As someone with food allergies, TruthIn has been a lifesaver. I can quickly check if a product contains ingredients I need to avoid.",
       author: "Michael Chen",
       role: "Food allergy sufferer",
-      avatar: "/placeholder.svg?height=80&width=80",
+      avatar: "/dp2.avif",
     },
     {
       quote:
         "The comparison feature is brilliant! I've discovered so many healthier alternatives to my favorite snacks.",
       author: "Emma Rodriguez",
       role: "Fitness enthusiast",
-      avatar: "/placeholder.svg?height=80&width=80",
+      avatar: "/dp3.avif",
     },
   ]
 
@@ -44,11 +44,11 @@ export default function TestimonialsSection() {
               <div className="flex items-center mb-6">
                 <div className="mr-4">
                   <Image
-                    src={testimonial.avatar || "/placeholder.svg"}
+                    src={testimonial.avatar}
                     alt={testimonial.author}
                     width={80}
                     height={80}
-                    className="rounded-full"
+                    className="w-20 object-cover h-20 rounded-full"
                   />
                 </div>
                 <div>

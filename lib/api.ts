@@ -157,7 +157,7 @@ const mockEateries: Eatery[] = [
     type: "Vegetarian",
     description:
       "A cozy cafe specializing in fresh, locally-sourced vegetarian and vegan dishes with a focus on nutritional balance.",
-    image: "/placeholder.svg?height=500&width=1000",
+    image: "/greenleafcafe.jpg",
     address: "123 Healthy St, Wellness District",
     location: "Downtown",
     distance: "0.8 miles",
@@ -226,7 +226,7 @@ const mockEateries: Eatery[] = [
     type: "Health Food",
     description:
       "A modern eatery offering nutritionally balanced meals designed for fitness enthusiasts and health-conscious diners.",
-    image: "/placeholder.svg?height=500&width=1000",
+    image: "/freshandfit.webp",
     address: "456 Fitness Ave, Westside",
     location: "Westside",
     distance: "1.2 miles",
@@ -295,7 +295,7 @@ const mockEateries: Eatery[] = [
     type: "Salad Bar",
     description:
       "A customizable salad bar concept where customers can build their own nutritious bowls from a wide selection of fresh ingredients.",
-    image: "/placeholder.svg?height=500&width=1000",
+    image: "/nutribowl.jpg",
     address: "789 Greens Blvd, Midtown",
     location: "Midtown",
     distance: "0.5 miles",
@@ -641,7 +641,7 @@ export async function analyzeFoodImage (file:File) : Promise<FoodAnalysisResult>
   const formData = new FormData();
   formData.append("image", file);
   
-  const response = await axios.post("http://localhost:4000/analyze", formData, {
+  const response = await axios.post("http://localhost:3000/analyze", formData, {
     headers: {
       "Content-Type": "multipart/form-data",
     },

@@ -6,25 +6,25 @@ export default function HowItWorksSection() {
       number: "01",
       title: "Scan Product",
       description: "Use your phone's camera to scan the barcode on any packaged food product.",
-      image: "/placeholder.svg?height=300&width=300",
+      image: "/scanme.avif",
     },
     {
       number: "02",
       title: "View Ingredients",
       description: "Instantly see a detailed breakdown of all ingredients and nutritional information.",
-      image: "/placeholder.svg?height=300&width=300",
+      image: "/ingredients.jpg",
     },
     {
       number: "03",
       title: "Check Verification",
       description: "Our system compares the ingredients with our verified database for accuracy.",
-      image: "/placeholder.svg?height=300&width=300",
+      image: "/verified.avif",
     },
     {
       number: "04",
       title: "Make Better Choices",
       description: "Get recommendations for healthier alternatives based on your scan results.",
-      image: "/placeholder.svg?height=300&width=300",
+      image: "/betterchoices.avif",
     },
   ]
 
